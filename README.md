@@ -1,5 +1,5 @@
 # React UML
-<img src='https://i.imgur.com/bTIp0KJ.gif' width='800' alt='demo' />
+<img src='https://i.imgur.com/WSZQXa3.gif' width='800' alt='demo' />
 
 
 ## Features
