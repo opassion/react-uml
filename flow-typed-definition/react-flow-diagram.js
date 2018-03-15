@@ -2,7 +2,7 @@
 
 import type { ComponentType, Element } from 'React';
 
-declare module 'react-flow-diagram' {
+declare module 'react-uml' {
   // Entity
   //
   declare export type EntityId = string;

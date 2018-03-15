@@ -1,7 +1,7 @@
 {
-  "name": "react-flow-diagram",
-  "version": "2.12.1",
-  "description": "react-flow-diagram React component",
+  "name": "react-uml",
+  "version": "2.13.0",
+  "description": "react-uml",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -45,10 +45,9 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
-  "author": "DrummerHead <drummerhead@gmail.com>",
+  "author": "opassion",
   "homepage": "",
-  "license": "MIT",
-  "repository": "https://github.com/DrummerHead/react-flow-diagram",
+  "repository": "https://github.com/opassion/react-uml",
   "keywords": [
     "react-component"
   ]

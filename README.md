@@ -1,10 +1,5 @@
-# React Flow Diagram
-
-{{Logo}}
-
-Batteries included React Component for renderizing, creating and editing diagrams.
-
-{{Animation gif that shows some of the features}}
+# React UML
+<img src='https://i.imgur.com/bTIp0KJ.gif' width='800' alt='demo' />
 
 
 ## Features
@@ -27,39 +22,7 @@ Batteries included React Component for renderizing, creating and editing diagram
 - Copy and paste entities
 - Alignment tools
 
-
-## Installation
-
-It's easier to see the an example already working to explain what we need to add. Pull [react-flow-diagram-example](https://github.com/DrummerHead/react-flow-diagram-example) and follow along; consider it a finished state of following these instructions. You can also use this repo as a starting point for your own implementation.
-
-Let's assume a fresh [create-react-app](https://github.com/facebook/create-react-app) (which the example is created from) strucure, then:
-
-```
-yarn add react-flow-diagram
-```
-
-And we'll also add [styled-components](https://github.com/styled-components/styled-components) for our custom entities, although this is not a requirement. You can just add `classNames` to elements and use regular css or any css transpilation language.
-
-```
-yarn add styled-components
-```
-
-in `/src/` we create a `/CustomDiagram/` following a standard of [Grouping by features](https://reactjs.org/docs/faq-structure.html#grouping-by-features-or-routes)
-
-And in it we create:
-
-* [model-example.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/model-example.js)
-* [config-example.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/config-example.js)
-* [index.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/index.js)
-* event
-  * [component.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/event/component.js)
-  * [icon.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/event/icon.js)
-* task
-  * [component.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/component.js)
-  * [icon.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/icon.js)
-
-
-### [model-example.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/model-example.js)
+### [model-example.js]
 
 The star of the show, the model that holds the data that will be represented as a diagram.
 
@@ -117,10 +80,8 @@ type Point = {
 };
 ```
 
-Check [model-example.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/model-example.js) to see who this all pans out.
 
-
-### [config-example.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/config-example.js)
+### [config-example.js]
 
 In this file we have two configuration objects, `config` which deals with diagram configurations and `customEntities` which holds references to our custom components that represent each type of entity.
 
@@ -181,10 +142,10 @@ type MetaEntityModel = {
 };
 ```
 
-Which is information that only matters while interacting with the components on the UI. You wouldn't need to save this information. A [HOC](https://reactjs.org/docs/higher-order-components.html) [Entity component](https://github.com/DrummerHead/react-flow-diagram/blob/master/src/entity/component.js) will deal about positioning, selection, context menus and more for you, so you just need to focus on the specific features of your custom Entity.
+Which is information that only matters while interacting with the components on the UI. You wouldn't need to save this information. A [HOC](https://reactjs.org/docs/higher-order-components.html) [Entity component] will deal about positioning, selection, context menus and more for you, so you just need to focus on the specific features of your custom Entity.
 
 
-### [index.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/index.js)
+### [index.js]
 
 On index we define our custom Component that initializes seting throguh `componentWillMount` and passes `customEntities` to the `Diagram` Component
 
@@ -196,7 +157,7 @@ import {
   setEntities,
   setConfig,
   diagramOn,
-} from 'react-flow-diagram';
+} from 'react-uml';
 import model from './model-example';
 import { config, customEntities } from './config-example';
 
@@ -225,20 +186,7 @@ We dispatch a `setConfig` and `setEntities` action to the `diagramStore`, and on
 
 We'll cover this in the next section:
 
-## Creating our own Entities
-
-This component does not come with any custom entities, and you must create your own. However on [react-flow-diagram-example](https://github.com/DrummerHead/react-flow-diagram-example/) we have two examples of custom entities, namely [task](https://github.com/DrummerHead/react-flow-diagram-example/tree/master/src/CustomDiagram/task) and [event](https://github.com/DrummerHead/react-flow-diagram-example/tree/master/src/CustomDiagram/event).
-
-Let's take a look at the task entitiy as an example.
-
-In the [task folder](https://github.com/DrummerHead/react-flow-diagram-example/tree/master/src/CustomDiagram/task) we see two files:
-
-* [component.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/component.js)
-* [icon.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/icon.js)
-
-Let's start with...
-
-### [component.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/component.js)
+### [component.js]
 
 Our custom component will be visually rendered on the UI in such a way that it uniquely identifies a specific concept. We can take for example [BPMN's](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation#Elements) elements or [UX flow diagrams](http://jjg.net/ia/visvocab/#page). Perhaps in the future we'll include Packs with custom entities for these types of use cases, but for now you'll have to create your own.
 
@@ -254,15 +202,7 @@ type DiagComponentProps = {
 };
 ```
 
-More details about `EntityModel` in the [model-example.js](#model-examplejs) section and `MetaEntityModel` in the [config-example.js](#config-examplejs) section.
-
-`setName` is a connected action that takes the propery `SetNamePayload` and returns `EntityAction`. The return of the function can be ignored since the important aspect is the side effect that sets the name of the entity.
-
-```JavaScript
-type SetNamePayload = { id: EntityId, name: string };
-```
-
-A usage example in [component.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/component.js) is:
+A usage example in [component.js]:
 
 ```JavaScript
 handleKeyPress = (ev) => {
@@ -280,7 +220,7 @@ handleKeyPress = (ev) => {
 };
 ```
 
-### [icon.js](https://github.com/DrummerHead/react-flow-diagram-example/blob/master/src/CustomDiagram/task/icon.js)
+### [icon.js]
 
 We also need to provide an icon which will be used in the Panel for adding new elements and in the contextual menu for each entity to quickly add new entities.
 
@@ -297,37 +237,6 @@ const icon = {
 export default icon;
 ```
 
-The icon consists of a `path` SVG React Element and a size that is the same as the size of `viewBox` SVG attribute. [Check the icon component](https://github.com/DrummerHead/react-flow-diagram/blob/master/src/icon/component.js#L59-L69) to make this more clear.
+The icon consists of a `path` SVG React Element and a size that is the same as the size of `viewBox` SVG attribute.
 
 The size attribute is provided so you don't need to transform the SVG element to fix exactly the needs of the panel or context menu. If we didn't have the size attribute, the SVG element may overflow or underflow its container.
-
-
-## Examples
-
-You can use [react-flow-diagram-example](https://github.com/DrummerHead/react-flow-diagram-example) as a template of a working implementation and modify it for your own needs.
-
-With time I'll add more examples, namely:
-
-- Integration with Redux
-- Using the provided flow types
-
-
-## Some History
-
-In a [Trailblazer](http://trailblazer.to/) related project I had the task of creating an editing environment surrounding [bpmn-js](https://github.com/bpmn-io/bpmn-js) which was the first diagramming library we used. bpmn-js proved to be a feature rich library, but extending to add the features we wanted proved to be practically impossible, coupled with dwindling documentation. It's still a great option if you're not thinking of adding your own types of entites or swerving from the BPMN model at all.
-
-After assessing many diagramming libraries available, my second go after bpmn-js was [react-diagrams](https://github.com/projectstorm/react-diagrams); which worked pretty well, had modern JS standards and was more extensible. However the source of truth (model) was scattered through many object's internal state and getting to the underlying data proved difficult in many scenarios. In my opinion, the code base was not idiomatic with React principles and it led to me implementing what I felt were many hacks to sync model state with UI representation.
-
-I never set off to reinvent the wheel, I was quite happy with the idea of using a time-tested open source library. But the options available left me making the decission to build another alternative. And perhaps it'll be useful to you too!
-
-## Contributing
-
-TODO
-
-## Companies using React Flow Diagram
-
-TODO
-
-## Sponsored by
-
-TODO

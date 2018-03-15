@@ -35,7 +35,7 @@ class Demo extends React.PureComponent<{}> {
   render() {
     return (
       <Main>
-        <h1>react-flow-diagram Demo</h1>
+        <h1>react-uml Demo</h1>
         <Diagram customEntities={customEntities} />
       </Main>
     );

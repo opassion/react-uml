@@ -9,7 +9,7 @@ import Canvas from '../canvas/component';
 
 import type { ComponentType, Element } from 'React';
 import type { EntityType } from '../entity/reducer';
-import type { DiagComponentProps } from 'react-flow-diagram';
+import type { DiagComponentProps } from 'react-uml';
 
 export const store = createStore(
   reducer,

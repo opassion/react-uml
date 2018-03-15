@@ -3,7 +3,7 @@
 import React from 'react';
 import style from 'styled-components';
 
-import type { DiagComponentProps } from 'react-flow-diagram';
+import type { DiagComponentProps } from 'react-uml';
 
 /*
  * Presentational
